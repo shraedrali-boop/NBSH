@@ -1,0 +1,1 @@
+import React from 'react';\nimport './JewelNotification.css';\n\nconst JewelNotification = ({ message }) => {\n  return (\n    <div className='notification'>\n      <div className='jewel'></div>\n      <span>{message}</span>\n    </div>\n  );\n};\n\nexport default JewelNotification;\n
