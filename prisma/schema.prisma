@@ -1,0 +1,17 @@
+model User {
+  id        Int    @id @default(autoincrement())
+  name      String
+  email     String @unique
+  password  String
+  phone     String?  // Added phone field for phone-based authentication
+  otp       OTP?     // Relationship to OTP model
+}
+
+model OTP {
+  id       Int   @id @default(autoincrement())
+  code     String
+  userId   Int   @unique
+  user     User  @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  isUsed   Boolean @default(false)
+}
